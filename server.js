@@ -44,12 +44,19 @@ io.configure('development', function(){
     io.set('transports', ['websocket']);
 });
 
-io.sockets.on('connection', function(socket) {    
-    socket.on('join', function(nick){
+var slideIdx=1;
+io.sockets.on('connection', function(socket) {
+    socket.on('join', function(){        
+        io.sockets.emit('drawSlide',{idx:slideIdx});
     });
     
-    socket.on('draw', function(data){
+    socket.on('drawLine', function(data){
         io.sockets.emit('line',data);
+    });
+    
+    socket.on('setCurrentSlide', function(data){
+        slideIdx = data.idx;
+        io.sockets.emit('drawSlide',{idx:slideIdx});
     });
     
 	socket.on('disconnect', function(){                

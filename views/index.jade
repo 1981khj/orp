@@ -1,7 +1,7 @@
 !!!5
 html
     head
-        title= 'gogochat'
+        title= 'Online Realtime Presentation'
         meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, target-densitydpi=medium-dpi') 
         link(rel='stylesheet', href='/css/style.css')        
         link(rel='icon', href='/img/favicon.ico')
@@ -10,11 +10,15 @@ html
     body
         #slideset
             .slide
+                p.titleslide 1
                 canvas(width="400",height="300")
             .slide
+                p.titleslide 2
                 canvas(width="400",height="300")
             .slide
+                p.titleslide 3
                 canvas(width="400",height="300")
             .slide
+                p.titleslide 4
                 canvas(width="400",height="300")
         script(type='text/javascript', src='/js/index.js')
